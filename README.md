@@ -1,31 +1,38 @@
 # R1
 
 #### 介绍
-Revolution
-
-#### 软件架构
-软件架构说明
+Revolution：从Go等语言函数多返回值的特性获取的灵感，用于针对异常的特殊处理
 
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1. 
 
 #### 使用说明
+```java
+public static R<Integer, IllegalArgumentException> divide(int a, int b) {
+    if (b == 0) {
+        return R.error(new IllegalArgumentException("You can't divide by 0"));
+    }
+    return R.ok(a / b);
+}
+public static void main(String[] args) {
+    // returning R with error
+    R<Integer, IllegalArgumentException> r1 = divide(2, 0);
+    // returning R without error
+    R<Integer, IllegalArgumentException> r2 = divide(2, 1);
+    // handle error when R contains error
+    r1.handleError(Throwable::printStackTrace);
+    r2.handleError(Throwable::printStackTrace);
+    // get result
+    System.out.println(r1.get()); // null
+    System.out.println(r2.get()); // 2
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
+    // shorthand
+    System.out.println(r1.handleError(Throwable::printStackTrace).orElse(Integer.MAX_VALUE)); // 2147483647
+    System.out.println(r2.handleError(Throwable::printStackTrace).orElse(Integer.MAX_VALUE)); // 2
+}
+```
 
 #### 特技
 

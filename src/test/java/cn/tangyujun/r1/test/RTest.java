@@ -11,10 +11,10 @@ import cn.tangyujun.r1.R;
 public class RTest {
 
 	public static void main(String[] args) {
-		// returning R without error
-		R<Integer, IllegalArgumentException> r2 = divide(2, 1);
 		// returning R with error
 		R<Integer, IllegalArgumentException> r1 = divide(2, 0);
+		// returning R without error
+		R<Integer, IllegalArgumentException> r2 = divide(2, 1);
 		// handle error when R contains error
 		r1.handleError(Throwable::printStackTrace);
 		r2.handleError(Throwable::printStackTrace);
