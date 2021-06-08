@@ -32,7 +32,7 @@ public static void main(String[] args) {
     System.out.println(r1.handleError(Throwable::printStackTrace).orElse(Integer.MAX_VALUE)); // 2147483647
     System.out.println(r2.handleError(Throwable::printStackTrace).orElse(Integer.MAX_VALUE)); // 2
 }
-``
+```
 
 
 #### Gitee Feature
