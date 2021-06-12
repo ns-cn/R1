@@ -34,6 +34,11 @@ public static void main(String[] args) {
 }
 ```
 
+#### 待办
+- [ ] AOP,针对返回值为R类型的方法,处理异常包装到R.error()方法中
+- [ ] AOP可配置是否启用
+- [ ] AOP可针对处理特定类型的异常(或忽略特定类型的异常)
+
 #### 特技
 
 1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
